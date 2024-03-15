@@ -38,9 +38,9 @@ describe('express(1)', function () {
       })
     })
 
-    it('should print jade view warning', function () {
+    it('should print pu view warning', function () {
       assert.ok(ctx.warnings.some(function (warn) {
-        return warn === 'the default view engine will not be jade in future releases\nuse `--view=jade\' or `--help\' for additional options'
+        return warn === 'the default view engine will not be jade. pug is default \nuse --help for additional options'
       }))
     })
 
@@ -54,10 +54,10 @@ describe('express(1)', function () {
       assert.notStrictEqual(ctx.files.indexOf('package.json'), -1)
     })
 
-    it('should have jade templates', function () {
-      assert.notStrictEqual(ctx.files.indexOf('views/error.jade'), -1)
-      assert.notStrictEqual(ctx.files.indexOf('views/index.jade'), -1)
-      assert.notStrictEqual(ctx.files.indexOf('views/layout.jade'), -1)
+    it('should have pug templates', function () {
+      assert.notStrictEqual(ctx.files.indexOf('views/error.pug'), -1)
+      assert.notStrictEqual(ctx.files.indexOf('views/index.pug'), -1)
+      assert.notStrictEqual(ctx.files.indexOf('views/layout.pug'), -1)
     })
 
     it('should have a package.json file', function () {
@@ -75,8 +75,8 @@ describe('express(1)', function () {
         '    "debug": "~2.6.9",\n' +
         '    "express": "~4.17.1",\n' +
         '    "http-errors": "~1.7.2",\n' +
-        '    "jade": "~1.11.0",\n' +
-        '    "morgan": "~1.10.0"\n' +
+        '    "morgan": "~1.10.0",\n' +
+        '    "pug": "2.0.0-beta11"\n' +
         '  }\n' +
         '}\n')
     })
@@ -225,10 +225,10 @@ describe('express(1)', function () {
       assert.notStrictEqual(ctx.files.indexOf('foo/package.json'), -1)
     })
 
-    it('should have jade templates', function () {
-      assert.notStrictEqual(ctx.files.indexOf('foo/views/error.jade'), -1)
-      assert.notStrictEqual(ctx.files.indexOf('foo/views/index.jade'), -1)
-      assert.notStrictEqual(ctx.files.indexOf('foo/views/layout.jade'), -1)
+    it('should have pug templates', function () {
+      assert.notStrictEqual(ctx.files.indexOf('foo/views/error.pug'), -1)
+      assert.notStrictEqual(ctx.files.indexOf('foo/views/index.pug'), -1)
+      assert.notStrictEqual(ctx.files.indexOf('foo/views/layout.pug'), -1)
     })
   })
 
@@ -506,10 +506,10 @@ describe('express(1)', function () {
       assert.notStrictEqual(ctx.files.indexOf('.gitignore'), -1, 'should have .gitignore file')
     })
 
-    it('should have jade templates', function () {
-      assert.notStrictEqual(ctx.files.indexOf('views/error.jade'), -1)
-      assert.notStrictEqual(ctx.files.indexOf('views/index.jade'), -1)
-      assert.notStrictEqual(ctx.files.indexOf('views/layout.jade'), -1)
+    it('should have pug templates', function () {
+      assert.notStrictEqual(ctx.files.indexOf('views/error.pug'), -1)
+      assert.notStrictEqual(ctx.files.indexOf('views/index.pug'), -1)
+      assert.notStrictEqual(ctx.files.indexOf('views/layout.pug'), -1)
     })
   })
 
