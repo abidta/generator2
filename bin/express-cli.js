@@ -98,8 +98,8 @@ function createApplication (name, dir, options, done) {
       start: 'node ./bin/www'
     },
     dependencies: {
-      debug: '~2.6.9',
-      express: '~4.17.1'
+      debug: '~4.3.4',
+      express: '~4.18.3'
     }
   }
 
@@ -128,7 +128,7 @@ function createApplication (name, dir, options, done) {
   // Cookie parser
   app.locals.modules.cookieParser = 'cookie-parser'
   app.locals.uses.push('cookieParser()')
-  pkg.dependencies['cookie-parser'] = '~1.4.5'
+  pkg.dependencies['cookie-parser'] = '~1.4.6'
 
   if (dir !== '.') {
     mkdir(dir, '.')
@@ -165,7 +165,7 @@ function createApplication (name, dir, options, done) {
   if (options.view) {
     // Copy view templates
     mkdir(dir, 'views')
-    pkg.dependencies['http-errors'] = '~1.7.2'
+    pkg.dependencies['http-errors'] = '~2.0.0'
     switch (options.view) {
       case 'dust':
         copyTemplateMulti('views', dir + '/views', '*.dust')
@@ -178,10 +178,7 @@ function createApplication (name, dir, options, done) {
         break
       case 'hjs':
         copyTemplateMulti('views', dir + '/views', '*.hjs')
-        break
-      case 'jade':
-        copyTemplateMulti('views', dir + '/views', '*.jade')
-        break
+        break   
       case 'pug':
         copyTemplateMulti('views', dir + '/views', '*.pug')
         break
@@ -257,7 +254,7 @@ function createApplication (name, dir, options, done) {
       break
     case 'pug':
       app.locals.view = { engine: 'pug' }
-      pkg.dependencies.pug = '2.0.0-beta11'
+      pkg.dependencies.pug = '3.0.2'
       break
     case 'twig':
       app.locals.view = { engine: 'twig' }

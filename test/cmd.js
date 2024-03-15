@@ -71,12 +71,12 @@ describe('express(1)', function () {
         '    "start": "node ./bin/www"\n' +
         '  },\n' +
         '  "dependencies": {\n' +
-        '    "cookie-parser": "~1.4.5",\n' +
-        '    "debug": "~2.6.9",\n' +
-        '    "express": "~4.17.1",\n' +
-        '    "http-errors": "~1.7.2",\n' +
+        '    "cookie-parser": "~1.4.6",\n' +
+        '    "debug": "~4.3.4",\n' +
+        '    "express": "~4.18.3",\n' +
+        '    "http-errors": "~2.0.0",\n' +
         '    "morgan": "~1.10.0",\n' +
-        '    "pug": "2.0.0-beta11"\n' +
+        '    "pug": "3.0.2"\n' +
         '  }\n' +
         '}\n')
     })
