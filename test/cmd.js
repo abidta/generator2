@@ -3,10 +3,10 @@ var assert = require('assert')
 var AppRunner = require('./support/app-runner')
 var exec = require('child_process').exec
 var fs = require('fs')
-var mkdirp = require('mkdirp')
+var {mkdirp} = require('mkdirp')
 var path = require('path')
 var request = require('supertest')
-var rimraf = require('rimraf')
+var {rimraf} = require('rimraf')
 var spawn = require('child_process').spawn
 var utils = require('./support/utils')
 var validateNpmName = require('validate-npm-package-name')
@@ -21,7 +21,7 @@ var TEMP_DIR = utils.tmpDir()
 describe('express(1)', function () {
   after(function (done) {
     this.timeout(30000)
-    rimraf(TEMP_DIR, done)
+    rimraf(TEMP_DIR).then(()=>done())
   })
 
   describe('(no args)', function () {
@@ -1221,6 +1221,7 @@ function npmInstall (dir, callback) {
 
   exec('npm install', { cwd: dir, env: env, maxBuffer: STDERR_MAX_BUFFER }, function (err, stderr) {
     if (err) {
+      console.log(env,     'abidddddtrrrsewerdddd')
       err.message += stderr
       callback(err)
       return
@@ -1281,12 +1282,12 @@ function setupTestEnvironment (name) {
 
   before('create environment', function (done) {
     ctx.dir = path.join(TEMP_DIR, name.replace(/[<>]/g, ''))
-    mkdirp(ctx.dir, done)
+    mkdirp(ctx.dir).then(()=>done())
   })
 
   after('cleanup environment', function (done) {
     this.timeout(30000)
-    rimraf(ctx.dir, done)
+    rimraf(ctx.dir).then(()=>done())
   })
 
   return ctx
